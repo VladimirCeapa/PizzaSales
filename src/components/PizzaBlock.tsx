@@ -1,3 +1,4 @@
+import { useState } from "react";
 
 
 interface Props {
@@ -20,24 +21,33 @@ const PizzaBlock = ({
     price,
     category,
     rating, }: Props) => {
+    const [activeType, setActiveType] = useState(0)
+    const [activeSize, setActiveSize] = useState(0)
+    const pizzaItem = ['тонкое', 'традиционное']
     return (
+
         <div className="pizza-block">
             <img
                 className="pizza-block__image"
-                // src="https://media.dodostatic.net/image/r:292x292/0198bf24170179679a7872f2ddf16d18.jpg"
                 src={imageUrl}
                 alt="Pizza"
             />
             <h4 className="pizza-block__title">{title}</h4>
             <div className="pizza-block__selector">
                 <ul>
-                    <li className="active">тонкое</li>
-                    <li>традиционное</li>
+                    {types.map((itemId) =>
+                        <li className={activeType == itemId ? 'active' : ''}
+                            onClick={() => setActiveType(itemId)}
+                            key={itemId}>{pizzaItem[itemId]}
+                        </li>)}
+
                 </ul>
                 <ul>
-                    <li className="active">26 см.</li>
-                    <li>30 см.</li>
-                    <li>40 см.</li>
+                    {sizes.map((itemId, i) =>
+                        <li className={activeSize == i ? 'active' : ''}
+                            onClick={() => setActiveSize(i)}
+                            key={itemId}>{itemId}см
+                        </li>)}
                 </ul>
             </div>
             <div className="pizza-block__bottom">

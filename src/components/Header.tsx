@@ -1,4 +1,5 @@
 import pizzaLogo from '../assets/img/pizza-logo.svg'
+import Clock from './Clock'
 
 const Header = () => {
     return (
@@ -11,6 +12,7 @@ const Header = () => {
                         <h1>React Pizza</h1>
                         <p>самая вкусная пицца во вселенной</p>
                     </div>
+                    <Clock />
                 </div>
                 <div className="header__cart">
                     <a href="/cart.html" className="button button--cart">

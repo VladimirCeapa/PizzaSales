@@ -1,12 +1,11 @@
+import { useEffect, useState } from 'react'
+
 
 import './App.css'
 import Categories from './components/Categories'
 import Header from './components/Header'
 import PizzaBlock from './components/PizzaBlock'
 import Sort from './components/Sort'
-import pizzas from './components/Pizzas'
-import { useEffect, useState } from 'react'
-
 import Skeleton from './components/Skeleton'
 
 
@@ -32,7 +31,7 @@ function App() {
               <Sort />
 
             </div>
-            <h2 className="content__title">Все пиццы</h2>
+            <h2 className="content__title">Все cупер пиццы !!!</h2>
             <div className="content__items">
               {items.map(item => <PizzaBlock {...item} />)}
 

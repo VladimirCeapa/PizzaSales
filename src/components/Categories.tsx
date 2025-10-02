@@ -1,15 +1,18 @@
-import { useState } from "react"
-import '../App.css'
+interface Props{
+    index:number;
+   onChange:(i:number)=>void;
+}
 
-const Categories = () => {
+
+const Categories = ({index,onChange}:Props) => {
     const pizzCategories = ['Все', 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые']
-    const [index, setIndex] = useState(0)
+   
     return (
 
         <div className="categories">
             <ul>
                 {pizzCategories.map((item, i) => <li key={i}
-                    onClick={() => setIndex(i)}
+                    onClick={() => onChange(i)}
                     className={index == i ? 'active' : ''} >{item}</li>)}
 
             </ul>

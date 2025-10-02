@@ -1,9 +1,13 @@
 import { useState } from "react"
 
+interface Props{
+item:number;
+onChange:(item:number)=>void;
+}
 
-const Sort = () => {
+const Sort = ({item,onChange}:Props) => {
     const sortItems = ['популярности', 'цене', 'алфавиту']
-    const [select, setSelect] = useState(sortItems[0])
+    // const [select, setSelect] = useState(sortItems[0])
     const [open, setOpen] = useState(false)
 
     return (
@@ -22,17 +26,17 @@ const Sort = () => {
                     />
                 </svg>
                 <b>Сортировка по:</b>
-                <span onClick={() => setOpen(!open)}>{select}</span>
+                <span onClick={() => setOpen(!open)}>{sortItems[item]}</span>
             </div>
             <div className="sort__popup">
                 <ul>
-                    {open && sortItems.map(item =>
-                        <li key={item} onClick={() => {
-                            setSelect(item)
+                    {open && sortItems.map((it,i) =>
+                        <li key={it} onClick={() => {
+                            onChange(i)
                             setOpen(!open)
                         }}
-                            className={item == select ? 'active' : ''}>
-                            {item}
+                            className={i ==item ? 'active' : ''}>
+                            {it}
                         </li>)}
                 </ul>
             </div>
